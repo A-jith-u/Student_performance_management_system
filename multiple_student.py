@@ -15,11 +15,17 @@ average={}
 failed_mark=[]
 passed=[]
 count=0
+average=0
 
 for i in range (0,len(student_info)):
     total_marks=student_info[i]["Maths"]+student_info[i]["Science"]+student_info[i]["English"]+student_info[i]["Social"]+student_info[i]["IT"]
     average_mark=total_marks/5
-    average.update({student_info[i]["Name"]:average_mark})
+    
+    
+    if(average<average_mark):
+       average=average_mark
+       topper=student_info[i]["Name"]
+      # print(f"The topper of the class is: {topper} with average marks of {average}")
 
     print(f"Student Name:{student_info[i]["Name"]}\nTotal Marks Scored:{total_marks}\nAverage Marks Scored:{average_mark}\n")
 
@@ -41,4 +47,6 @@ print("")
 print(f"The list of students who have failed the course is:\n {failed_mark}")
 print("")
 print(f"The number of students who have passed the course is: {count}")
+print("")
+print(f"The topper of the class is: {topper} with average marks of {average}")
 
